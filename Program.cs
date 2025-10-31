@@ -1,7 +1,11 @@
+using JwtAuthLearn.Data;
+using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<UserDbContex>(options =>
+options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 // Add services to the container.
 
 builder.Services.AddControllers();
