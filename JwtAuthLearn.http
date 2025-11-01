@@ -28,3 +28,12 @@ Authorization: Bearer {{token}}
 ### Authenticated Only Endpoint
 GET {{JwtAuthLearn_HostAddress}}/api/auth/admin-only
 Authorization: Bearer {{token}}
+
+###
+POST {{JwtAuthLearn_HostAddress}}/api/auth/refresh-token
+Content-Type: application/json
+
+{
+  "userId": "E0FCCAD3-515B-49FD-AF64-831918FE24F1",
+  "refreshToken": "W0TR5Wv4ukBNLvP7Y/DnnQ3dMWqcrWceXa9jCJcXJLs="
+}
