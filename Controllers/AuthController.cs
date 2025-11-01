@@ -43,6 +43,12 @@ namespace JwtAuthLearn.Controllers
             return Ok("Your are authenticated");
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin-only")]
+        public IActionResult AdminOnlyEndpoint()
+        {
+            return Ok("Your are an Admin!");
+        }
     }
 }
 
