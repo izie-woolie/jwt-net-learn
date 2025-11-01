@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using JwtAuthLearn.Models;
 using JwtAuthLearn.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,13 @@ namespace JwtAuthLearn.Controllers
                 return BadRequest("Invalid username or password.");
 
             return Ok(token);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult AuthenticatedOnlyEndpoint()
+        {
+            return Ok("Your are authenticated");
         }
 
     }

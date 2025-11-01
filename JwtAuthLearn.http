@@ -1,6 +1,27 @@
-@JwtAuthLearn_HostAddress = http://localhost:5015
+@JwtAuthLearn_HostAddress = https://localhost:7097
+@token =  eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoid29vbGllIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJlMGZjY2FkMy01MTViLTQ5ZmQtYWY2NC04MzE5MThmZTI0ZjEiLCJleHAiOjE3NjIwNjc5MzcsImlzcyI6Ikp3dEF1dGhMZWFybiIsImF1ZCI6Ikp3dEF1dGhMZWFybkF1ZGllbmNlIn0.QXJSfFmC15zzp2WqF0btPuZjOAS9nyNfiL2F1a5FX5O6cDJbjSQWiniryjMgvU4Mu5oK2myc2rPxhkWYAkVCsg
 
-GET {{JwtAuthLearn_HostAddress}}/weatherforecast/
-Accept: application/json
+### Register User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
 
 ###
+
+### Login User
+POST {{JwtAuthLearn_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "woolie",
+  "password": "woolie"
+}
+###
+
+### Authenticated Only Endpoint
+GET {{JwtAuthLearn_HostAddress}}/api/auth
+Authorization: Bearer {{token}}
